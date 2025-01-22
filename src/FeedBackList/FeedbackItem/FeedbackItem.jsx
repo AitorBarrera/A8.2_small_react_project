@@ -1,16 +1,17 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function feedbackItem({feedbackItem}) {
+export default function FeedbackItem({item, onSelectedFeedbackHandler}) {
   return (
-    <a
-    name={feedbackItem.text}
-    id={feedbackItem.id}
-    class="btn btn-primary"
-    href="#"
-    role="button"
+    <button
+      name={item.text}
+      id={item.id}
+      className="btn bg-dark m-3"
+      href="#"
+      role="button"
+      onClick={(e) => onSelectedFeedbackHandler(item)}
     >
-    {feedbackItem.unicode}
-    </a>
+      {item.unicode}
+    </button>
   )
 }
