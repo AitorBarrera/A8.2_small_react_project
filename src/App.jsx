@@ -1,12 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import FeedbackList from './FeedBackList/FeedbackList';
-
-const inicialItem = {
-  id: 0,
-  text: 'happy',
-  unicode: "😊",
-}
+import ResetFeedback from './ResetFeedback/ResetFeedback';
+import SelectedFeedbackDisplay from './SelectedFeedbackDisplay/SelectedFeedbackDisplay';
 
 const feedbackListItems = [
   {
@@ -37,18 +33,40 @@ const feedbackListItems = [
 ];
 
 function App() {
-  const [selectedFeedback, setSelectedFeedback] = useState(inicialItem);
+  const [selectedFeedback, setSelectedFeedback] = useState({});
 
   const onSelectedFeedbackHandler = (emoji) => {
     console.log("prueba");
     setSelectedFeedback(emoji);
   }
 
+  const resetSelectedFeedback = () => {
+    setSelectedFeedback("");
+  }
+
   return (
-    <div className="app">
+    <div className="app h-100 w-100">
       <h1>Emoji Feedback App</h1>
-      <FeedbackList feedbackListItems={feedbackListItems} onSelectedFeedbackHandler={onSelectedFeedbackHandler}/>
-      <p>{selectedFeedback.text}</p>
+      <div className="h-100 w-100 d-flex flex-column align-items-center">
+        
+        <div className='mt-5 w-100 h-50 align-items-center'>
+          <h3>How was your experience?</h3>
+          <div className='row h-100'>
+            <FeedbackList 
+              feedbackListItems={feedbackListItems}
+              selectedFeedbackItem={selectedFeedback}
+              onSelectedFeedbackHandler={onSelectedFeedbackHandler}/>
+          </div>
+        </div>
+        
+        <div className='mt-5 h-25 selectedFeedbackContainer'>
+          <h2>Selected Feedback</h2>
+          <SelectedFeedbackDisplay selectedFeedback={selectedFeedback}/>
+        </div>
+        
+        <ResetFeedback onClickedResetFeedback={resetSelectedFeedback}/>
+      
+      </div>
     </div>
   )
 }

@@ -1,3 +1,50 @@
 html, body{
     height: 100%;
+    color: #faf0ca;
+    background-color: #023047;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1, h2{
+    color: #fb8500;
+}
+
+h3{
+    color: #ffb703;
+}
+
+h1, h2{
+    text-transform: uppercase;
+}
+
+.btnFeedbackItem  {
+    font-size: 5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: font-size 0.5s ease-out;
+}
+
+.btnFeedbackItem.selected  {
+    border-radius: 50%;
+    background-color: #8ecae6;
+}
+
+.btnFeedbackItem:hover  {
+    font-size: 7rem;
+    transition: font-size 0.5s ease-out;
+}
+
+.selectedFeedbackContainer{
+    font-size: 3rem;
+}
+
+.selectedFeedbackContainer p{
+    text-transform: capitalize;
+}
+
+.resetButton{
+    background-color: #f95738;
+    text-transform: uppercase;
+    border: 2px solid black;
 }
